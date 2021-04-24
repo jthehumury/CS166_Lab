@@ -14,7 +14,7 @@ sponsor text,
 start_date text,
 end_date text,
 budget REAL,
-RRIMARY KEY (pno),
+PRIMARY KEY (pno),
 FOREIGN KEY (ssn) REFERENCES Professor (ssn)
 );
 CREATE TABLE Dept (
@@ -37,7 +37,7 @@ FOREIGN KEY (dno) REFERENCES Dept (dno)
 );
 CREATE TABLE Work_in (
 ssn text NOT NULL,
-pno text,
+pno INTEGER,
 PRIMARY KEY (ssn, pno),
 FOREIGN KEY (ssn) REFERENCES Professor (ssn),
 FOREIGN KEY (pno) REFERENCES Project (pno)
@@ -47,13 +47,13 @@ pno INTEGER NOT NULL,
 ssn text NOT NULL,
 since text,
 PRIMARY KEY (pno, ssn),
-FOREIGN KEY (pno) REFERENCES Project (pno)
+FOREIGN KEY (pno) REFERENCES Project (pno),
 FOREIGN KEY (ssn) REFERENCES Graduate (ssn)
 );
 CREATE TABLE Work_dept (
 ssn text,
 dno INTEGER NOT NULL,
-time_pc text
+time_pc text,
 PRIMARY KEY (ssn, dno),
 FOREIGN KEY (ssn) REFERENCES Professor (ssn),
 FOREIGN KEY (dno) REFERENCES Dept (dno)
@@ -63,13 +63,13 @@ pno INTEGER,
 ssn_graduate text,
 ssn text NOT NULL,
 since text,
-PRIMARY KEY (pno, ssn_graduate, ssn)
+PRIMARY KEY (pno, ssn_graduate, ssn),
 FOREIGN KEY (pno) REFERENCES Project (pno),
 FOREIGN KEY (ssn_graduate) REFERENCES Graduate (ssn),
 FOREIGN KEY (ssn) REFERENCES Professor (ssn)
 );
 
-DROP TABLE IF EXISTS Musicians, Album, Songs, Instrument, Place, Telephone, Plays, Perform, Lives
+DROP TABLE IF EXISTS Musicians, Album, Songs, Instrument, Place, Telephone, Plays, Perform, Lives;
 CREATE TABLE Musicians (
 ssn text NOT NULL,
 name text,
@@ -120,7 +120,7 @@ ssn text NOT NULL,
 songId text NOT NULL,
 PRIMARY KEY (ssn, songId),
 FOREIGN KEY (ssn) REFERENCES Musicians (ssn),
-FOREIGN KEY (songId) REFERENCES Instrument (songId)
+FOREIGN KEY (songId) REFERENCES Songs (songId)
 );
 CREATE TABLE Lives (
 address text NOT NULL,

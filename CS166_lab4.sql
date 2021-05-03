@@ -50,7 +50,7 @@ INSERT INTO Books VALUES (860507041,'b1','McGraw-Hill',1980);
 INSERT INTO Authors VALUES ('John Anderson','Davis');
 
 SELECT Year, Title FROM Books;
-SELECT * FROM Students WHERE Major = CS;
+SELECT * FROM Students WHERE Major = "CS";
 
-SELECT * FROM Books WHERE Publisher = McGraw-Hill AND Year < 1990;
-SELECT AName FROM Authors WHERE Address = Davis;
+SELECT * FROM Books WHERE Publisher = "McGraw-Hill" AND Year < 1990;
+SELECT AName FROM Authors WHERE Address = "Davis";

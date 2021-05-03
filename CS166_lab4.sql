@@ -72,3 +72,6 @@ SELECT StName FROM Students WHERE NOT(Major='CS' OR Age<30);
 ALTER TABLE Authors RENAME COLUMN AName TO Name;
 SELECT StName FROM Students NATURAL JOIN Borrows WHERE Major = 'CS';
 SELECT Title FROM Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones';
+SELECT Title FROM Descriptions NATURAL JOIN Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones' and NOT(Keyword = 'database');
+SELECT StName FROM (SELECT StName, Age FROM Students) - (SELECT d.StName, d.Age FROM (((CREATE TABLE d SELECT * FROM Students) CROSS JOIN Students) WHERE Students.Age < d.Age));
+SELECT Title FROM (SELECT Title, Year FROM Books) - (SELECT d.Title, d.Year FROM (((CREATE TABLE d SELECT * FROM Books) CROSS JOIN Books) WHERE Books.Year < d.Year));

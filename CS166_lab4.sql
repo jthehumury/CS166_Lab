@@ -45,7 +45,7 @@ FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (Keyword) REFERENCES Descriptions (Keyword)
 );
 
-INSERT INTO Students VALUES (860507041,'John Anderson','CS',45);
+INSERT INTO Students VALUES (860507041,'John Anderson','BIO',4);
 INSERT INTO Books VALUES (860507041,'b1','McGraw-Hill',1980);
 INSERT INTO Authors VALUES ('John Anderson','Davis');
 
@@ -54,5 +54,6 @@ SELECT * FROM Students WHERE Major = 'CS';
 
 SELECT * FROM Books WHERE Publisher = 'McGraw-Hill' AND Year < 1990;
 SELECT AName FROM Authors WHERE Address = 'Davis';
-SELECT Name FROM Students WHERE NOT(Major='CS' OR Age<30);
-ALTER TABLE Customer CHANGE AName Name text;
+SELECT StName FROM Students WHERE NOT(Major='CS' OR Age<30);
+ALTER TABLE Authors RENAME COLUMN AName TO Name;
+SELECT Name FROM Authors;

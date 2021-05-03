@@ -45,10 +45,20 @@ FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (Keyword) REFERENCES Descriptions (Keyword)
 );
 
-INSERT INTO Students VALUES (860507041,'John Anderson','BIO',4);
-INSERT INTO Books VALUES (860507041,'b1','McGraw-Hill',1980);
+INSERT INTO Students VALUES (860507041,'John 1','CS',4);
+INSERT INTO Students VALUES (860507041,'John 2','CS',40);
+INSERT INTO Students VALUES (860507041,'John 3','BIO',4);
+INSERT INTO Students VALUES (860507041,'John 4','BIO',35);
+INSERT INTO Books VALUES (860507043,'b1','McGraw-Hill',1980);
+INSERT INTO Books VALUES (860507044,'b1','McGraw-Hill',2000);
+INSERT INTO Books VALUES (860507041,'b1','McGraw',1980);
+INSERT INTO Books VALUES (860507041,'b1','McGraw',2000);
 INSERT INTO Authors VALUES ('Jones','Davis');
-INSERT INTO Has_written VALUES (860507041,'Jones');
+INSERT INTO Authors VALUES ('Jones','Davis1');
+INSERT INTO Authors VALUES ('Jones1','Davis');
+INSERT INTO Authors VALUES ('Jones1','Davis1');
+INSERT INTO Has_written VALUES (860507043,'Jones');
+INSERT INTO Has_written VALUES (860507044,'Jones1');
 
 SELECT Year, Title FROM Books;
 SELECT * FROM Students WHERE Major = 'CS';

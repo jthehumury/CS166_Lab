@@ -11,12 +11,12 @@ StId numeric(9,0) NOT NULL,
 StName text,
 Major text,
 Age numeric(2,0),
-PRIMARY KEY (StId),
+PRIMARY KEY (StId)
 );
 CREATE TABLE Authors (
 AName text NOT NULL,
 Address text,
-PRIMARY KEY (AName),
+PRIMARY KEY (AName)
 );
 CREATE TABLE Descriptions (
 Keyword text NOT NULL,

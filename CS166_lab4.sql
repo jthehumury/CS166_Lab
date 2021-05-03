@@ -45,6 +45,10 @@ FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (Keyword) REFERENCES Descriptions (Keyword)
 );
 
+INSERT INTO Students VALUES (860507041,'John Anderson','CS',45);
+INSERT INTO Books VALUES (860507041,'b1','McGraw-Hill',1980);
+INSERT INTO Authors VALUES ('John Anderson','Davis');
+
 SELECT Year, Title FROM Books;
 SELECT * FROM Students WHERE Major = CS;
 

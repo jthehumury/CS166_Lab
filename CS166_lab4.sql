@@ -57,9 +57,9 @@ INSERT INTO Books VALUES (860507034,'b5','McGraw-Hill',2000);
 INSERT INTO Books VALUES (860507041,'b6','McGraw',1980);
 INSERT INTO Books VALUES (870507041,'b7','McGraw',2000);
 INSERT INTO Authors VALUES ('Jones','Davis');
-INSERT INTO Authors VALUES ('Jones','Davis1');
-INSERT INTO Authors VALUES ('Jones1','Davis');
-INSERT INTO Authors VALUES ('Jones1','Davis1');
+INSERT INTO Authors VALUES ('Jones','Davis 1');
+INSERT INTO Authors VALUES ('Jones 1','Davis');
+INSERT INTO Authors VALUES ('Jones 1','Davis 1');
 INSERT INTO Has_written VALUES (860507043,'Jones');
 INSERT INTO Has_written VALUES (870507041,'Jones1');
 

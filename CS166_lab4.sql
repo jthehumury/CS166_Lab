@@ -44,3 +44,9 @@ PRIMARY KEY (DocId, Keyword),
 FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (Keyword) REFERENCES Descriptions (Keyword)
 );
+
+SELECT Year, Title FROM Books;
+SELECT * FROM Students WHERE Major = CS;
+
+SELECT * FROM Books WHERE Publisher = McGraw-Hill AND Year < 1990;
+SELECT AName FROM Authors WHERE Address = Davis;

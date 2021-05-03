@@ -61,7 +61,7 @@ INSERT INTO Authors VALUES ('Jones','Davis1');
 INSERT INTO Authors VALUES ('Jones1','Davis');
 INSERT INTO Authors VALUES ('Jones1','Davis1');
 INSERT INTO Has_written VALUES (860507043,'Jones');
-INSERT INTO Has_written VALUES (860507044,'Jones1');
+INSERT INTO Has_written VALUES (860507041,'Jones1');
 
 SELECT Year, Title FROM Books;
 SELECT * FROM Students WHERE Major = 'CS';
@@ -71,4 +71,4 @@ SELECT AName FROM Authors WHERE Address = 'Davis';
 SELECT StName FROM Students WHERE NOT(Major='CS' OR Age<30);
 ALTER TABLE Authors RENAME COLUMN AName TO Name;
 SELECT StName FROM Students NATURAL JOIN Borrows WHERE Major = 'CS';
-SELECT Title FROM (Authors NATURAL JOIN Has_written) NATURAL JOIN Books WHERE Name = 'Jones';
+SELECT Title FROM Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones';

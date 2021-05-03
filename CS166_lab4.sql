@@ -62,7 +62,7 @@ INSERT INTO Authors VALUES ('Jones 1','Davis');
 INSERT INTO Authors VALUES ('Jones 1','Davis 1');
 INSERT INTO Has_written VALUES (860507043,'Jones');
 INSERT INTO Has_written VALUES (870507041,'Jones1');
-INSERT INTO Describes VALUES (860507043,'datab');
+INSERT INTO Describes VALUES (860507043,'database');
 
 SELECT Year, Title FROM Books;
 SELECT * FROM Students WHERE Major = 'CS';
@@ -73,6 +73,6 @@ SELECT StName FROM Students WHERE NOT(Major='CS' OR Age<30);
 ALTER TABLE Authors RENAME COLUMN AName TO Name;
 SELECT StName FROM Students NATURAL JOIN Borrows WHERE Major = 'CS';
 SELECT Title FROM Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones';
-SELECT Title FROM Descriptions NATURAL JOIN Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones' and NOT(Keyword = 'database');
+SELECT Title FROM Descriptions NATURAL JOIN Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones' and Keyword = 'database';
 SELECT StName FROM ((SELECT StName, Age FROM Students) MINUS (SELECT d.StName, d.Age FROM (((SELECT * INTO d FROM Students) WHERE Students.Age < d.Age)));
 SELECT Title FROM ((SELECT Title, Year FROM Books) MINUS (SELECT d.Title, d.Year FROM (((SELECT * INTO d FROM Books) CROSS JOIN Books) WHERE Books.Year < d.Year)));

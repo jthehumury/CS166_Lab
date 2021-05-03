@@ -32,7 +32,7 @@ dno INTEGER NOT NULL,
 name text,
 age INTEGER,
 deg_pg text,
-PRIMARY KEY (ssn),
+PRIMARY KEY (ssgn),
 FOREIGN KEY (dno) REFERENCES Dept (dno)
 );
 CREATE TABLE Work_in (

@@ -62,6 +62,7 @@ INSERT INTO Authors VALUES ('Jones 1','Davis');
 INSERT INTO Authors VALUES ('Jones 1','Davis 1');
 INSERT INTO Has_written VALUES (860507043,'Jones');
 INSERT INTO Has_written VALUES (870507041,'Jones1');
+INSERT INTO Describes VALUES (870507041,'datab');
 
 SELECT Year, Title FROM Books;
 SELECT * FROM Students WHERE Major = 'CS';

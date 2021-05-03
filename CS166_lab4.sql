@@ -71,4 +71,4 @@ SELECT AName FROM Authors WHERE Address = 'Davis';
 SELECT StName FROM Students WHERE NOT(Major='CS' OR Age<30);
 ALTER TABLE Authors RENAME COLUMN AName TO Name;
 SELECT StName FROM Students NATURAL JOIN Borrows WHERE Major = 'CS';
-SELECT Title FROM Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones1';
+SELECT Title FROM Authors NATURAL JOIN Has_written NATURAL JOIN Books WHERE Name = 'Jones';

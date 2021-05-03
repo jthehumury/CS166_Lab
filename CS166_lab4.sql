@@ -40,7 +40,7 @@ FOREIGN KEY (AName) REFERENCES Authors (AName)
 CREATE TABLE Describes (
 DocId numeric(9,0) NOT NULL,
 Keyword text NOT NULL,
-PRIMARY KEY (ssn, dno),
+PRIMARY KEY (DocId, Keyword),
 FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (Keyword) REFERENCES Descriptions (Keyword)
 );

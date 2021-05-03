@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Books, Students, Authors, Descriptions, Borrows, Has-written, Describes;
+DROP TABLE IF EXISTS Books, Students, Authors, Descriptions, Borrows, Has_written, Describes;
 CREATE TABLE Books (
 DocId numeric(9,0) NOT NULL,
 Title text,
@@ -30,7 +30,7 @@ PRIMARY KEY (DocId, StId),
 FOREIGN KEY (DocId) REFERENCES Books (DocId),
 FOREIGN KEY (StId) REFERENCES Students (StId)
 );
-CREATE TABLE Has-written (
+CREATE TABLE Has_written (
 DocId numeric(9,0) NOT NULL,
 AName text NOT NULL,
 PRIMARY KEY (DocId, AName),

@@ -54,3 +54,5 @@ SELECT * FROM Students WHERE Major = 'CS';
 
 SELECT * FROM Books WHERE Publisher = 'McGraw-Hill' AND Year < 1990;
 SELECT AName FROM Authors WHERE Address = 'Davis';
+SELECT Name FROM Students WHERE NOT(Major='CS' OR Age<30)
+ALTER TABLE Customer CHANGE AName Name text;

@@ -9,11 +9,11 @@ GROUP BY sid;
 
 SELECT sname, COUNT(pid)
 FROM ((parts NATURAL JOIN catalog) NATURAL JOIN suppliers)
-WHERE color = ALL ('Green')
+WHERE color = ALL('Green')
 GROUP BY sid;
 
-SELECT sname
+SELECT sname, MAX(cost)
 FROM ((parts NATURAL JOIN catalog) NATURAL JOIN suppliers)
-WHERE color = ANY ('Red')
-AND color = ANY ('Green')
-GROUP BY sid;
+WHERE color = ANY('Red')
+AND color = ANY('Green')
+GROUP BY sname;

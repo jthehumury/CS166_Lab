@@ -1,0 +1,15 @@
+CREATE TABLE Patient {
+  name,
+  patientId;
+  gender;
+  #appointments,
+  age,
+  address,
+  PRIMARY KEY (patientId)
+};
+
+CREATE TABLE Appointment {
+  data,
+  time_slot,
+  appnt_Id
+};

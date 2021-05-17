@@ -13,3 +13,92 @@ CREATE TABLE Appointment {
   time_slot,
   appnt_Id
 };
+
+CREATE TABLE Staff_works_in {
+  name,
+  staff_Id,
+  hospital_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Hospital_works_in {
+  hospital_Id,
+  name,
+  staff_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Department_includes {
+  dept_Id,
+  name,
+  hospital_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Hospital_includes {
+  hospital_Id,
+  name,
+  dept_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Department_includes {
+  dept_Id,
+  name,
+  hospital_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Department_works_dept {
+  dept_Id,
+  name,
+  doctor_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE Doctor_works_dept {
+  doctor_Id,
+  name,
+  specialty,
+  dept_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE request_maintenance {
+  doctor_Id,
+  staff_Id,
+  patient_per_hour,
+  dept_name,
+  time_slot
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE has {
+  appnt_Id,
+  doctor_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE schedules {
+  appnt_Id,
+  staff_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE searches {
+  hospital_Id,
+  patient_Id,
+  appnt_Id,
+  PRIMARY KEY (),
+  FOREIGN KEY ()
+};

@@ -11,7 +11,32 @@ CREATE TABLE Patient {
 CREATE TABLE Appointment {
   data,
   time_slot,
+  appnt_Id,
+  PRIMARY KEY (appnt_Id)
+};
+
+CREATE TABLE past_Appointment {
   appnt_Id
+  PRIMARY KEY (appnt_Id),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE active_Appointment {
+  appnt_Id
+  PRIMARY KEY (appnt_Id,
+  FOREIGN KEY ()
+};
+
+CREATE TABLE available_Appointment {
+  appnt_Id
+  PRIMARY KEY (appnt_Id),
+  FOREIGN KEY ()
+};
+
+CREATE TABLE waitlisted_Appointment {
+  appnt_Id
+  PRIMARY KEY (appnt_Id),
+  FOREIGN KEY ()
 };
 
 CREATE TABLE Staff_works_in {

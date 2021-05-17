@@ -11,15 +11,33 @@ FROM catalog
 GROUP BY sid
 HAVING COUNT(pid) >= 3;
 
-SELECT sname, COUNT(pid)
-FROM ((parts NATURAL JOIN catalog) NATURAL JOIN suppliers)
-WHERE pid = ALL
-        (SELECT pid
-        FROM parts
-        WHERE color = 'Green')
+SELECT sname, COUNT(*)
+FROM
+	(SELECT sname
+	FROM parts p1, catalog c1, suppliers s1
+	WHERE p1.pid = c1.pid
+	AND s1.sid = c1.sid
+
+	EXCEPT
+
+	SELECT sname
+	FROM parts p2, catalog c2, suppliers s2
+	WHERE p2.pid = c2.pid
+	AND s2.sid = c2.sid
+	AND p2.color <> 'Green') as x
 GROUP BY sname;
 
-SELECT sname, MAX(cost)
-FROM ((parts NATURAL JOIN catalog) NATURAL JOIN suppliers)
-WHERE color IN('Red') AND color IN('Green')
-GROUP BY color;
+SELECT sname
+FROM parts p1, catalog c1, suppliers s1
+WHERE p1.pid = c1.pid
+AND s1.sid = c1.sid
+AND p1.color = 'Green'
+GROUP BY sname
+
+INTERSECT
+
+SELECT sname
+FROM parts p2, catalog c2, suppliers s2
+WHERE p2.pid = c2.pid
+AND s2.sid = c2.sid
+AND p2.color = 'Red';

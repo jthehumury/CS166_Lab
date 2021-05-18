@@ -1,7 +1,3 @@
-SELECT * FROM suppliers;
-SELECT * FROM parts;
-SELECT * FROM catalog;
-
 SELECT sid, COUNT(pid)
 FROM catalog
 GROUP BY sid;

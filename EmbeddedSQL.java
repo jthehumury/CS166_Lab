@@ -316,10 +316,11 @@ public class EmbeddedSQL {
 
    public static void Query6(EmbeddedSQL esql){
       try{
-         String query = "SELECT address FROM (suppliers NATURAL JOIN Catalog) NATURAL JOIN parts WHERE pname = ";
+         String query = "SELECT address FROM (suppliers NATURAL JOIN Catalog) NATURAL JOIN parts WHERE pname = \'";
          System.out.print("\tEnter part: ");
          String input = in.readLine();
          query += input;
+	 query += "\'";
 
          int rowCount = esql.executeQuery(query);
          System.out.println ("total row(s): " + rowCount);

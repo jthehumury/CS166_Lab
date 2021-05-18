@@ -317,7 +317,7 @@ public class EmbeddedSQL {
    public static void Query6(EmbeddedSQL esql){
       try{
          String query = "SELECT address FROM (suppliers NATURAL JOIN Catalog) NATURAL JOIN parts WHERE pname = ";
-         System.out.print("\tEnter part: $");
+         System.out.print("\tEnter part: ");
          String input = in.readLine();
          query += input;
 

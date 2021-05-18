@@ -32,7 +32,6 @@ WHERE sname IN
 	WHERE p1.pid = c1.pid
 	AND s1.sid = c1.sid
 	AND p1.color = 'Green'
-	GROUP BY sname
 
 	INTERSECT
 

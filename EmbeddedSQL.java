@@ -271,20 +271,38 @@ public class EmbeddedSQL {
    }//end Query2
 
    public static void Query3(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT sname, COUNT(pid) FROM supplier NATURAL JOIN catalog WHERE sname IN\n";
+	query += "(SELECT sname FROM parts p1, catalog c1, suppliers s1 WHERE p1.pid = c1.pid AND s1.sid = c1.sid\n";
+	query += "EXCEPT\n"
+	query += "SELECT sname FROM parts p2, catalog c2, suppliers s2 WHERE p2.pid = c2.pid AND s2.sid = c2.sid AND p2.color <> \'Green\'\n)";
+	query += "GROUP BY sname";
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query3
 
    public static void Query4(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT sname, MAX(cost) FROM supplier NATURAL JOIN catalog WHERE sname IN\n";
+	query += "(SELECT sname FROM parts p1, catalog c1, suppliers s1 WHERE p1.pid = c1.pid AND s1.sid = c1.sid AND p1.color = \'Green\'\n";
+	query += "INTERSECT\n";
+	query += "SELECT sname FROM parts p2, catalog c2, suppliers s2 WHERE p2.pid = c2.pid AND s2.sid = c2.sid AND p2.color = \'Red\'\n)";
+	query += "GROUP BY sname";
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query4
 
    public static void Query5(EmbeddedSQL esql){
       try{
-         String query = "SELECT * FROM Catalog WHERE cost < ";
+         String query = "SELECT * FROM parts NATURAL JOIN Catalog WHERE cost < ";
          System.out.print("\tEnter cost: $");
          String input = in.readLine();
          query += input;
@@ -298,8 +316,8 @@ public class EmbeddedSQL {
 
    public static void Query6(EmbeddedSQL esql){
       try{
-         String query = "SELECT * FROM Catalog WHERE cost < ";
-         System.out.print("\tEnter cost: $");
+         String query = "SELECT address FROM (suppliers NATURAL JOIN Catalog) NATURAL JOIN parts WHERE pname = ";
+         System.out.print("\tEnter part: $");
          String input = in.readLine();
          query += input;
 

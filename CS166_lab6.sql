@@ -8,7 +8,7 @@ GROUP BY sid
 HAVING COUNT(pid) >= 3;
 
 SELECT sname, COUNT(pid)
-FROM supplier NATURAL JOIN catalog
+FROM suppliers NATURAL JOIN catalog
 WHERE sname IN
 	(SELECT sname
 	FROM parts p1, catalog c1, suppliers s1
@@ -25,7 +25,7 @@ WHERE sname IN
 GROUP BY sname;
 
 SELECT sname, MAX(cost)
-FROM supplier NATURAL JOIN catalog
+FROM suppliers NATURAL JOIN catalog
 WHERE sname IN
 	(SELECT sname
 	FROM parts p1, catalog c1, suppliers s1

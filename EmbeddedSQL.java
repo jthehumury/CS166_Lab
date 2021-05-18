@@ -249,15 +249,25 @@ public class EmbeddedSQL {
    }//end QueryExample
    
    public static void Query1(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT sid, COUNT(pid) FROM catalog GROUP BY sid";
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query1
 
    public static void Query2(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT sid, COUNT(pid) FROM catalog GROUP BY sid HAVING COUNT(pid) >= 3";
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query2
 
    public static void Query3(EmbeddedSQL esql){
@@ -273,15 +283,31 @@ public class EmbeddedSQL {
    }//end Query4
 
    public static void Query5(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT * FROM Catalog WHERE cost < ";
+         System.out.print("\tEnter cost: $");
+         String input = in.readLine();
+         query += input;
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query5
 
    public static void Query6(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try{
+         String query = "SELECT * FROM Catalog WHERE cost < ";
+         System.out.print("\tEnter cost: $");
+         String input = in.readLine();
+         query += input;
+
+         int rowCount = esql.executeQuery(query);
+         System.out.println ("total row(s): " + rowCount);
+      }catch(Exception e){
+         System.err.println (e.getMessage());
+      }
    }//end Query6
 
 }//end EmbeddedSQL

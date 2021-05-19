@@ -7,7 +7,7 @@ CREATE TABLE Appointment (appnt_ID CHAR(10) NOT NULL, date CHAR(30), time_slot C
 	PRIMARY KEY(appnt_ID));
 
 /*Dual Entities?: Department_Includes, Doctor_worksDept, Staff_worksIn*/
-CREATE TABLE Department_Includes (dept_ID CHAR(10) NOT NULL, hospital_ID CHAR(10) NOT NULL, name CHAR(30),
+CREATE TABLE Department_includes (dept_ID CHAR(10) NOT NULL, hospital_ID CHAR(10) NOT NULL, name CHAR(30),
 	PRIMARY KEY(hospital_ID, dept_ID),
 	FOREIGN KEY(hospital_ID) REFERENCES Hospital(hospital_ID) ON DELETE NO ACTION);
 CREATE TABLE Doctor_worksDept (doctor_ID CHAR(10) NOT NULL, dept_ID CHAR(10) NOT NULL, name CHAR(30), specialty CHAR(30),

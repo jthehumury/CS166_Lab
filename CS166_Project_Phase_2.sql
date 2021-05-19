@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Hospital, Patient, Appointment, Department_includes, Doctor_worksDept, Staff_worksIn, past, active, available, waitlisted, has, schedules, request_maintenance, searches;
 /*Entities: Hospital, Patient, Appointment*/
 CREATE TABLE Hospital (hospital_ID CHAR(10) NOT NULL, hname CHAR(30),
 	PRIMARY KEY(hospital_ID));

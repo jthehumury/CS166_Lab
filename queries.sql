@@ -7,14 +7,12 @@ SELECT COUNT(*)
 FROM part_nyc
 WHERE on_hand > 70;
 
-
 SELECT COUNT(on_hand)
-FROM 
+FROM
   (part_nyc
    UNION
    part_sfo)
 WHERE color = 'Red';
-
 
 SELECT supplier, COUNT(on_hand)
 FROM part_nyc

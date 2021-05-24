@@ -30,3 +30,10 @@ FROM
   
   SELECT part_number, supplier
   part_sfo);
+  
+UPDATE part_nyc
+SET on_hand = on_hand - 10
+
+DELETE
+FROM part_nyc
+WHERE on_hand < 30;

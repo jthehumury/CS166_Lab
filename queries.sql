@@ -7,18 +7,22 @@ SELECT COUNT(*)
 FROM part_nyc
 WHERE on_hand > 70;
 
-SELECT COUNT(on_hand)
+SELECT SUM(on_hand)
 FROM
   (part_nyc
    UNION
    part_sfo)
 WHERE color = 'Red';
 
-SELECT supplier, COUNT(on_hand)
-FROM part_nyc
-
-SELECT supplier, COUNT(on_hand)
-FROM part_sfo
+SELECT supplier FROM
+  (SELECT supplier, SUM(on_hand)
+  FROM part_nyc
+  GROUP BY supplier
+  LEFT JOIN
+  SELECT supplier, SUM(on_hand)
+  FROM part_sfo
+  GROUP BY supplier)
+WHERE part_nyc > part_sfo OR part_sfo = NULL;
 
 SELECT supplier
 FROM 
